@@ -23,6 +23,17 @@ cleanup() {
     exit 0
 }
 
+# Speak function for Mac
+speak () {
+    echo "$@";
+    say "$@" -r 100
+}
+
+# Notification popup on mac
+notif () {
+    osascript -e "display notification \"$2\" with title \"$1\""
+}
+
 # Pause/Resume function
 toggle_pause() {
     if $paused; then

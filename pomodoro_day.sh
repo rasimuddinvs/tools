@@ -8,7 +8,7 @@ source ~/function
 WORK_MINUTES=25
 SHORT_BREAK=5
 LONG_BREAK=15
-TOTAL_SESSIONS=13
+TOTAL_SESSIONS=${1:-14}
 BELL=$'\a'  # Terminal bell
 
 # State variables
@@ -21,17 +21,6 @@ cleanup() {
     echo -e "\n\nTotal completed sessions: $((current_session))/$TOTAL_SESSIONS"
     echo "Pomodoro day ended!"
     exit 0
-}
-
-# Speak function for Mac
-speak () {
-    echo "$@";
-    say "$@" -r 100
-}
-
-# Notification popup on mac
-notif () {
-    osascript -e "display notification \"$2\" with title \"$1\""
 }
 
 # Pause/Resume function
